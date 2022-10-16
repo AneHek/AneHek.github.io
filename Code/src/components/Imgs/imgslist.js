@@ -15,5 +15,12 @@ const imgslist = {
     "Barbarian" : basepath + "Heroico/bar.png",
     "Mercenary" : basepath + "Heroico/mer.png",
     "Countess" : basepath + "Heroico/cou.png",
+    "GreenShard":"Shard/GreenShard.png",
+    "Totem":"Mod/TotemIcon.png",
+    "Medal":"Mod/medallion.png",
+    "1":"Tower/1.png",
+    "2":"Tower/2.png",
+    "3":"Tower/3.png",
+    "4":"Tower/4.png",
 }
 export default imgslist;

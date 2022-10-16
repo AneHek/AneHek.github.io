@@ -22,7 +22,7 @@ export default {
     },
     methods: {
         getUrlById(id){
-            console.log(imgslist[id]);
+            //console.log(imgslist[id]);
             return imgslist[id];
         }
     }

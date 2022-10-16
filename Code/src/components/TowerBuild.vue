@@ -6,8 +6,10 @@
             type="card"
             pane-style="padding: 20px;"
         >
-        <NTabPane name = "指南阅读指导" Tab="Read Me" display-directive="show:lazy">1</NTabPane>
-        <NTabPane name = "男骑士" Tab="Squire" display-directive="show:lazy">2</NTabPane>
+        <NTabPane name = "指南阅读指导" Tab="Read Me" display-directive="show:lazy">
+            <NGrid cols="1 600:2 900:3 1200:4 1500:5 2000:6" :y-gap="10" :x-gap="10"><NGridItem v-for="item of 4" style="align-self: center;"><TBC ></TBC></NGridItem></NGrid></NTabPane>
+        <NTabPane name = "男骑士" Tab="Squire" display-directive="show:lazy">
+        </NTabPane>
         <NTabPane name = "男法师" Tab="Apprentice" display-directive="show:lazy">3</NTabPane>
         <NTabPane name = "女猎人" Tab="Huntress" display-directive="show:lazy">4</NTabPane>
         <NTabPane name = "男和尚" Tab="Monk" display-directive="show:lazy">5</NTabPane>
@@ -28,9 +30,10 @@
 
 <script>
 import Imgs from './Imgs/imgs.vue';
-import {NCard,NTabs,NTabPane} from 'naive-ui'
+import TBC from './views/TowerBuildCard.vue'
+import {NCard,NTabs,NTabPane,NGrid,NGridItem} from 'naive-ui'
 export default {
     name: "TB",
-    components: { Imgs,NCard,NTabPane,NTabs },
+    components: { Imgs,NCard,NTabPane,NTabs,TBC,NGrid,NGridItem },
 }
 </script>
