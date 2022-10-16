@@ -32,7 +32,7 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" id="Adept"/>
+                                <Imgs size="large" :id="'MOD'+mc1"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{shard1}}
@@ -43,7 +43,7 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" id="Adept"/>
+                                <Imgs size="large" :id="'MOD'+mc2"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{shard2}}
@@ -54,7 +54,7 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" id="Adept"/>
+                                <Imgs size="large" :id="'MOD'+mc3"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{shard3}}
@@ -74,7 +74,7 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" id="Adept"/>
+                                <Imgs size="large" :id="sc1"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{mods1}}
@@ -85,7 +85,7 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" id="Adept"/>
+                                <Imgs size="large" :id="sc2"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{mods2}}
@@ -96,7 +96,7 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" id="Adept" />
+                                <Imgs size="large" :id="sc3" />
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{mods3}}
@@ -133,6 +133,12 @@ export default {
         sid1:{type:Number,default:0,},
         sid2:{type:Number,default:0,},
         sid3:{type:Number,default:0,},
+        mc1:{type:String,default:10},
+        mc2:{type:String,default:10},
+        mc3:{type:String,default:10},
+        sc1:{type:String,default:"C0"},
+        sc2:{type:String,default:"C0"},
+        sc3:{type:String,default:"C0"},
         relictype:{type:String,default:"Medal"},
     },
     data(){
