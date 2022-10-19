@@ -32,11 +32,18 @@ const columns = [
     maxWidth:100,
   },
   {
-    title:"碎片包",
-    key:"shardpack",
+    title:"大师模式星数",
+    key:"stars",
     resizable:true,
     width:100,
     maxWidth:100,
+  },
+  {
+    title:"入侵模式",
+    key:"prime",
+    resizable:true,
+    width:110,
+    maxWidth:110,
   },
   {
     title:"适用英雄",
@@ -44,72 +51,6 @@ const columns = [
     resizable:true,
     width:110,
     maxWidth:110,
-    defaultFilterOptionValues: [],
-    filterOptions: [
-      {
-        label: "蛇女",
-        value: "蛇女"
-      },
-      {
-        label: "男和尚",
-        value: "男和尚"
-      },
-      {
-        label: "女和尚",
-        value: "女和尚"
-      },
-      {
-        label: "男骑士",
-        value: "骑士"
-      },
-      {
-        label: "女骑士",
-        value: "骑士"
-      },
-      {
-        label: "树女",
-        value: "树女"
-      },
-      {
-        label: "刺客",
-        value: "刺客"
-      },
-      {
-        label: "男法师",
-        value: "男法师"
-      },
-      {
-        label: "女法师",
-        value: "女法师"
-      },
-      {
-        label: "女猎人",
-        value: "女猎人"
-      },
-      {
-        label: "召唤师",
-        value: "召唤师"
-      },
-      {
-        label: "野蛮人",
-        value: "野蛮人"
-      },
-      {
-        label: "女枪",
-        value: "女枪"
-      },
-      {
-        label: "火男",
-        value: "火男"
-      },
-      {
-        label: "EV2",
-        value: "EV2"
-      }
-    ],
-    filter(value, row) {
-    return !!~row.vaildforhero.indexOf(String(value)) && !!~row.vaildforhero.indexOf("ALL");
-    }
   },
   {
     title: "适用位置",
@@ -155,7 +96,7 @@ const columns = [
 ];
 const pagination = { pageSize: 10 };
 export default {
-    name:"SC",
+    name:"SCM",
     props:{
         data:Array
     },

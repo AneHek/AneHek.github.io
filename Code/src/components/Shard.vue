@@ -1,14 +1,16 @@
 <template>
     <h1>Shard查询</h1>
     <NCard>
-        <n-input v-model:value="SearchKey" type="text" placeholder="输入碎片名进行搜索" round clearable autosize
+        <n-input v-model:value='SearchKey' type="text" placeholder="输入碎片名进行搜索" round clearable autosize
             style="min-width: 50%" />
         <n-button strong secondary round type="info"
             style="transform: translate(0px, 7px);--n-padding: 0;--n-width:34px" @click="SearchByName">
             🔍
         </n-button>
+        <div id = "IconShow">
+        </div>
         <br>
-        <NTabs justify-content="space-evenly" type="line" v-model:value="values">
+        <NTabs v-model:values='nowTab' prop="nowTab" justify-content="space-evenly" type="line" @update:values="changeTitleIcon(nowTab)">
             <NTabPane name="前言" display-directive="show:lazy"></NTabPane>
             <NTabPane name="C0" display-directive="show:lazy"><SC :data='Clean_DataList[0]'/></NTabPane>
             <NTabPane name="C1" display-directive="show:lazy"><SC :data='Clean_DataList[1]'/></NTabPane>
@@ -21,34 +23,35 @@
             <NTabPane name="C8" display-directive="show:lazy"><SC :data='Clean_DataList[8]'/></NTabPane>
             <NTabPane name="C9" display-directive="show:lazy"><SC :data='Clean_DataList[9]'/></NTabPane>
             <NTabPane name="C10" display-directive="show:lazy"><SC :data='Clean_DataList[10]'/></NTabPane>
-            <NTabPane name="大师" display-directive="show:lazy"><SC :data='Clean_DataList[11]'/></NTabPane>
-
+            <NTabPane name="大师" display-directive="show:lazy"><SCM :data='Clean_DataList[11]'/></NTabPane>
         </NTabs>
     </NCard>
 </template>
 
 <script setup>
 import SC from './views/ShardCard.vue'
+import SCM from './views/ShardCardMastery.vue'
 import { NCard, NInput, NButton, NTabs, NTabPane } from 'naive-ui'
-import { forEach, method, random } from 'lodash';
 </script>
 <script>
+
+
 import shardlist from './data/shard'
 export default {
     name: 'Shard',
     data() {
         return {
-            SearchKey: "",
-            values: "前言",
+            SearchKey:'',
+            nowTab:"前言",
             Clean_DataList:this.getCleanData()
         }
     },
     methods: {
         SearchByName() {
-            this.values = "大师";
+            this.nowTab = "大师";
         },
         getCleanData(){
-            let dataList = [[],[],[],[],[],[],[],[],[],[],[]]
+            let dataList = [[],[],[],[],[],[],[],[],[],[],[],[]];
             for(let i in shardlist[0]){
                 //console.log(shardlist[0][i]);
                 let tmp = {};
@@ -59,6 +62,20 @@ export default {
                 tmp.vaildforhero = shardlist[0][i].vaildforhero;
                 tmp.slot = this.getSlot(shardlist[0][i]); 
                 let id = this.getIdByShardPack(tmp.shardpack);
+                tmp.key = dataList[id].length + 1;
+                dataList[id].push(tmp);
+            }
+            for(let i in shardlist[1]){
+                //console.log(shardlist[0][i]);
+                let tmp = {};
+                tmp.name = shardlist[1][i].name;
+                tmp.effect = shardlist[1][i].effect;
+                tmp.lvl = shardlist[1][i].lvl;
+                tmp.stars = shardlist[1][i].stars;
+                tmp.vaildforhero = shardlist[1][i].vaildforhero;
+                tmp.prime = shardlist[1][i].prime
+                tmp.slot = this.getSlot(shardlist[1][i]); 
+                let id = 11;
                 tmp.key = dataList[id].length + 1;
                 dataList[id].push(tmp);
             }
@@ -76,6 +93,11 @@ export default {
         getIdByShardPack(str){
             if(str.indexOf("Chaos") == -1) return 0;
             return Number(str.replace(" ","").replace("Chaos",""));
+        },
+        changeTitleIcon(value){
+            let d = document.getElementById("IconShow")
+            
+            console.log(value)
         }
 
     }

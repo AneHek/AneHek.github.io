@@ -30,7 +30,7 @@ const imgslist = {
     "C8":"Shard/C8.png",
     "C9":"Shard/C9.png",
     "C10":"Shard/C10.png",
-    "Mastery":"Shard/Mastery.png",
+    "大师":"Shard/Mastery.png",
     "1":"Tower/1.png",
     "2":"Tower/2.png",
     "3":"Tower/3.png",
