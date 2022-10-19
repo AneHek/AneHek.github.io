@@ -1,8 +1,8 @@
 <template>
     <h1>Shard查询</h1>
     <NCard>
-        <n-input v-model:value='SearchKey' type="text" placeholder="输入碎片名进行搜索" round clearable autosize
-            style="min-width: 50%" />
+        <n-input type="text" placeholder="输入碎片名进行搜索" round clearable autosize
+            style="min-width: 50%" @update-value="(val)=>{SearchKey=val;}"/>
         <n-button strong secondary round type="info"
             style="transform: translate(0px, 7px);--n-padding: 0;--n-width:34px" @click="SearchByName">
             🔍
@@ -10,7 +10,7 @@
         <div id = "IconShow">
         </div>
         <br>
-        <NTabs v-model:values='nowTab' prop="nowTab" justify-content="space-evenly" type="line" @update:values="changeTitleIcon(nowTab)">
+        <NTabs :value="nowTab" justify-content="space-evenly" type="line" @update-value="changeTitleIcon">
             <NTabPane name="前言" display-directive="show:lazy"></NTabPane>
             <NTabPane name="C0" display-directive="show:lazy"><SC :data='Clean_DataList[0]'/></NTabPane>
             <NTabPane name="C1" display-directive="show:lazy"><SC :data='Clean_DataList[1]'/></NTabPane>
@@ -32,6 +32,7 @@
 import SC from './views/ShardCard.vue'
 import SCM from './views/ShardCardMastery.vue'
 import { NCard, NInput, NButton, NTabs, NTabPane } from 'naive-ui'
+import {ref} from 'vue'
 </script>
 <script>
 
@@ -41,13 +42,14 @@ export default {
     name: 'Shard',
     data() {
         return {
-            SearchKey:'',
+            SearchKey:ref(null),
             nowTab:"前言",
             Clean_DataList:this.getCleanData()
         }
     },
     methods: {
         SearchByName() {
+            console.log(this.SearchKey)
             this.nowTab = "大师";
         },
         getCleanData(){
@@ -94,10 +96,9 @@ export default {
             if(str.indexOf("Chaos") == -1) return 0;
             return Number(str.replace(" ","").replace("Chaos",""));
         },
-        changeTitleIcon(value){
-            let d = document.getElementById("IconShow")
-            
-            console.log(value)
+        changeTitleIcon(tab){
+            this.nowTab = tab;
+            console.log(tab)
         }
 
     }

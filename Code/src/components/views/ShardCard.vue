@@ -22,6 +22,7 @@ const columns = [
     title: "效果描述",
     key: "effect",
     resizable:true,
+    width:500,
     maxWidth:600,
   },
   {
