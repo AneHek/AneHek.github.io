@@ -1,9 +1,11 @@
 <template>
     <n-data-table
     pagination-behavior-on-filter="first"
+    :max-height="600"
     :columns="columns"
     :data="data"
     :pagination="pagination"
+    virtual-scroll
   />
 </template>
 
@@ -22,8 +24,8 @@ const columns = [
     title: "效果描述",
     key: "effect",
     resizable:true,
-    width:500,
-    maxWidth:600,
+    width:300,
+    maxWidth:1000,
   },
   {
     title:"最大升级数",
@@ -109,7 +111,7 @@ const columns = [
       }
     ],
     filter(value, row) {
-    return !!~row.vaildforhero.indexOf(String(value)) && !!~row.vaildforhero.indexOf("ALL");
+    return !!~row.vaildforhero.indexOf(String(value)) || !!~row.vaildforhero.indexOf("ALL");
     }
   },
   {
@@ -122,31 +124,31 @@ const columns = [
     filterOptions: [
       {
         label: "武器",
-        value: "weapon"
+        value: "武器"
       },
       {
         label: "盾牌",
-        value: "sheild"
+        value: "盾牌"
       },
       {
         label: "头盔",
-        value: "helmet"
+        value: "头盔"
       },
       {
         label: "胸甲",
-        value: "chest"
+        value: "胸甲"
       },
       {
         label: "手套",
-        value: "gloves"
+        value: "手套"
       },
       {
         label: "鞋子",
-        value: "boots"
+        value: "鞋子"
       },
       {
         label: "防御塔",
-        value: "relic"
+        value: "防御塔"
       }
     ],
     filter(value, row) {

@@ -2,8 +2,10 @@
     <n-data-table
     pagination-behavior-on-filter="first"
     :columns="columns"
+    :max-height="700"
     :data="data"
     :pagination="pagination"
+    virtual-scroll
   />
 </template>
 
@@ -22,8 +24,8 @@ const columns = [
     title: "效果描述",
     key: "effect",
     resizable:true,
-    width:500,
-    maxWidth:600,
+    width:300,
+    maxWidth:1000,
   },
   {
     title:"最大升级数",
@@ -59,40 +61,6 @@ const columns = [
     resizable:true,
     width:110,
     maxWidth:110,
-    defaultFilterOptionValues: [],
-    filterOptions: [
-      {
-        label: "武器",
-        value: "weapon"
-      },
-      {
-        label: "盾牌",
-        value: "sheild"
-      },
-      {
-        label: "头盔",
-        value: "helmet"
-      },
-      {
-        label: "胸甲",
-        value: "chest"
-      },
-      {
-        label: "手套",
-        value: "gloves"
-      },
-      {
-        label: "鞋子",
-        value: "boots"
-      },
-      {
-        label: "防御塔",
-        value: "relic"
-      }
-    ],
-    filter(value, row) {
-      return !!~row.slot.indexOf(String(value));
-    }
   }
 ];
 const pagination = { pageSize: 10 };
