@@ -63,11 +63,11 @@ const columns = [
       },
       {
         label: "男骑士",
-        value: "骑士"
+        value: "男骑士"
       },
       {
         label: "女骑士",
-        value: "骑士"
+        value: "女骑士"
       },
       {
         label: "树女",
@@ -156,7 +156,7 @@ const columns = [
     }
   }
 ];
-const pagination = { pageSize: 10 };
+const pagination = { pageSize: 8 };
 export default {
     name:"SC",
     props:{

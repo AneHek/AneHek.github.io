@@ -26,55 +26,13 @@
         <template #footer>
             <NLayout has-sider>
                 <NLayoutSider bordered content-style="padding: 5px" :width="50">
-                    <Imgs size="large" id="GreenShard" style="margin-top:175% ;"/>
+                    <Imgs size="large" id="GreenShard" style="margin-top:132.5% ;"/>
                 </NLayoutSider>
                 <NLayout>
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" :id="'MOD'+mc1"/>
-                            </NGridItem>
-                            <NGridItem span="3" style="align-self: center;text-align: left;">
-                                {{shard1}}
-                            </NGridItem>
-                        </NGrid>
-                    </NLayoutContent>
-                    <NDivider style="margin-top: 5px;margin-bottom: 5px;padding-left: 5px;padding-right: 5px;" />
-                    <NLayoutContent bordered content-style="padding: 0px">
-                        <NGrid cols="4">
-                            <NGridItem span="1">
-                                <Imgs size="large" :id="'MOD'+mc2"/>
-                            </NGridItem>
-                            <NGridItem span="3" style="align-self: center;text-align: left;">
-                                {{shard2}}
-                            </NGridItem>
-                        </NGrid>
-                    </NLayoutContent>
-                    <NDivider style="margin-top: 5px;margin-bottom: 5px;padding-left: 5px;padding-right: 5px;" />
-                    <NLayoutContent bordered content-style="padding: 0px">
-                        <NGrid cols="4">
-                            <NGridItem span="1">
-                                <Imgs size="large" :id="'MOD'+mc3"/>
-                            </NGridItem>
-                            <NGridItem span="3" style="align-self: center;text-align: left;">
-                                {{shard3}}
-                            </NGridItem>
-                        </NGrid>
-                    </NLayoutContent>
-                </NLayout>
-            </NLayout>
-
-            <NDivider style="margin-top: 5px;margin-bottom: 5px;padding-left: 5px;padding-right: 5px;" />
-
-            <NLayout has-sider>
-                <NLayoutSider bordered content-style="padding: 5px" :width="50">
-                    <Imgs size="large" :id='relictype' style="margin-top:175% ;"/>
-                </NLayoutSider>
-                <NLayout>
-                    <NLayoutContent bordered content-style="padding: 0px">
-                        <NGrid cols="4">
-                            <NGridItem span="1">
-                                <Imgs size="large" :id="sc1"/>
+                                <Imgs size="large" :id="'MOD'+ (mc1 == '' ? '1' : mc1)"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{mods1}}
@@ -85,7 +43,7 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" :id="sc2"/>
+                                <Imgs size="large" :id="'MOD'+ (mc2 == '' ? '1' : mc2)"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{mods2}}
@@ -96,10 +54,52 @@
                     <NLayoutContent bordered content-style="padding: 0px">
                         <NGrid cols="4">
                             <NGridItem span="1">
-                                <Imgs size="large" :id="sc3" />
+                                <Imgs size="large" :id="'MOD'+ (mc3 == '' ? '1' : mc3)"/>
                             </NGridItem>
                             <NGridItem span="3" style="align-self: center;text-align: left;">
                                 {{mods3}}
+                            </NGridItem>
+                        </NGrid>
+                    </NLayoutContent>
+                </NLayout>
+            </NLayout>
+
+            <NDivider style="margin-top: 5px;margin-bottom: 5px;padding-left: 5px;padding-right: 5px;" />
+
+            <NLayout has-sider>
+                <NLayoutSider bordered content-style="padding: 5px" :width="50">
+                    <Imgs size="large" :id='relictype' style="margin-top:132.5% ;"/>
+                </NLayoutSider>
+                <NLayout>
+                    <NLayoutContent bordered content-style="padding: 0px">
+                        <NGrid cols="4">
+                            <NGridItem span="1">
+                                <Imgs size="large" :id="sc1== ''? 'C0':sc1"/>
+                            </NGridItem>
+                            <NGridItem span="3" style="align-self: center;text-align: left;">
+                                {{shard1}}
+                            </NGridItem>
+                        </NGrid>
+                    </NLayoutContent>
+                    <NDivider style="margin-top: 5px;margin-bottom: 5px;padding-left: 5px;padding-right: 5px;" />
+                    <NLayoutContent bordered content-style="padding: 0px">
+                        <NGrid cols="4">
+                            <NGridItem span="1">
+                                <Imgs size="large" :id="sc2== ''? 'C0':sc2"/>
+                            </NGridItem>
+                            <NGridItem span="3" style="align-self: center;text-align: left;">
+                                {{shard2}}
+                            </NGridItem>
+                        </NGrid>
+                    </NLayoutContent>
+                    <NDivider style="margin-top: 5px;margin-bottom: 5px;padding-left: 5px;padding-right: 5px;" />
+                    <NLayoutContent bordered content-style="padding: 0px">
+                        <NGrid cols="4">
+                            <NGridItem span="1">
+                                <Imgs size="large" :id="sc3 == ''? 'C0':sc3" />
+                            </NGridItem>
+                            <NGridItem span="3" style="align-self: center;text-align: left;">
+                                {{shard3}}
                             </NGridItem>
                         </NGrid>
                     </NLayoutContent>
@@ -118,8 +118,7 @@ import {
 </script>
 <script>
 import modslist from "../data/mods"
-import shardlist from '../data/shard'
-import imgslist from '../Imgs/imgslist'
+import shard from "../data/shard-new"
 import buildnamelist from "../data/buildname"
 import towerlist from "../data/tower"
 export default {
@@ -130,15 +129,15 @@ export default {
         mid1:{type:Number,default:0,},
         mid3:{type:Number,default:0,},
         mid2:{type:Number,default:0,},
-        sid1:{type:Number,default:0,},
-        sid2:{type:Number,default:0,},
-        sid3:{type:Number,default:0,},
-        mc1:{type:String,default:10},
-        mc2:{type:String,default:10},
-        mc3:{type:String,default:10},
-        sc1:{type:String,default:"C0"},
-        sc2:{type:String,default:"C0"},
-        sc3:{type:String,default:"C0"},
+        sid1:{type:String,},
+        sid2:{type:String,},
+        sid3:{type:String,},
+        mc1:{type:String,default:"10"},
+        mc2:{type:String,default:"10"},
+        mc3:{type:String,default:"10"},
+        //sc1:{type:String,default:"C0"},
+        //sc2:{type:String,default:"C0"},
+        //sc3:{type:String,default:"C0"},
         relictype:{type:String,default:"Medal"},
     },
     data(){
@@ -148,9 +147,12 @@ export default {
             mods1:this.getModsNameById(this.mid1),
             mods2:this.getModsNameById(this.mid2),
             mods3:this.getModsNameById(this.mid3),
-            shard1:this.getShardNameById(this.sid1),
-            shard2:this.getShardNameById(this.sid2),
-            shard3:this.getShardNameById(this.sid3),
+            shard1:this.sid1,
+            shard2:this.sid2,
+            shard3:this.sid3,
+            sc1:this.getShardCById(this.sid1),
+            sc2:this.getShardCById(this.sid2),
+            sc3:this.getShardCById(this.sid3),
         }
     },
     methods:{
@@ -164,12 +166,13 @@ export default {
             let mods = modslist[id];
             return mods["Name"];
         },
-        getShardNameById(id){
-            let name = shardlist[0][id]
-            if(name != null)
-                return name["name"];
-            name = shardlist[1][id]
-            return name["name"];
+        getShardCById(id){
+            let Clv = shard[id]
+            if(Clv == null)
+                Clv = "大师"
+            else
+                Clv = Clv['shardpack']
+            return Clv
         }
     }
 }

@@ -36,12 +36,12 @@ import {ref} from 'vue'
 </script>
 <script>
 
-
-import shardlist from './data/shard'
+import shard from './data/shard-new'
+import shardlist_master from './data/shard'
 export default {
     name: 'Shard',
     data() {
-        return {
+        return { 
             SearchKey:ref(null),
             nowTab:"前言",
             Clean_DataList:this.getCleanData()
@@ -54,33 +54,48 @@ export default {
         },
         getCleanData(){
             let dataList = [[],[],[],[],[],[],[],[],[],[],[],[]];
-            for(let i in shardlist[0]){
-                //console.log(shardlist[0][i]);
-                let tmp = {};
-                tmp.name = shardlist[0][i].name;
-                tmp.effect = shardlist[0][i].effect;
-                tmp.lvl = shardlist[0][i].lvl;
-                tmp.shardpack = shardlist[0][i].shardpack;
-                tmp.vaildforhero = shardlist[0][i].vaildforhero;
-                tmp.slot = this.getSlot(shardlist[0][i]); 
+            for(let i in shard){
+                //console.log(i);
+                let tmp = shard[i];
+                tmp.name = i;
                 let id = this.getIdByShardPack(tmp.shardpack);
                 tmp.key = dataList[id].length + 1;
                 dataList[id].push(tmp);
             }
-            for(let i in shardlist[1]){
-                //console.log(shardlist[0][i]);
-                let tmp = {};
-                tmp.name = shardlist[1][i].name;
-                tmp.effect = shardlist[1][i].effect;
-                tmp.lvl = shardlist[1][i].lvl;
-                tmp.stars = shardlist[1][i].stars;
-                tmp.vaildforhero = shardlist[1][i].vaildforhero;
-                tmp.prime = shardlist[1][i].prime
-                tmp.slot = this.getSlot(shardlist[1][i]); 
+            for(let i in shardlist_master){
+                let tmp = shardlist_master[i];
+                tmp.name = i;
                 let id = 11;
                 tmp.key = dataList[id].length + 1;
                 dataList[id].push(tmp);
             }
+            // for(let i in shardlist[0]){
+            //     //console.log(shardlist[0][i]);
+            //     let tmp = {};
+            //     tmp.name = shardlist[0][i].name;
+            //     tmp.effect = shardlist[0][i].effect;
+            //     tmp.lvl = shardlist[0][i].lvl;
+            //     tmp.shardpack = shardlist[0][i].shardpack;
+            //     tmp.vaildforhero = shardlist[0][i].vaildforhero;
+            //     tmp.slot = this.getSlot(shardlist[0][i]); 
+            //     let id = this.getIdByShardPack(tmp.shardpack);
+            //     tmp.key = dataList[id].length + 1;
+            //     dataList[id].push(tmp);
+            // }
+            // for(let i in shardlist[1]){
+            //     //console.log(shardlist[0][i]);
+            //     let tmp = {};
+            //     tmp.name = shardlist[1][i].name;
+            //     tmp.effect = shardlist[1][i].effect;
+            //     tmp.lvl = shardlist[1][i].lvl;
+            //     tmp.stars = shardlist[1][i].stars;
+            //     tmp.vaildforhero = shardlist[1][i].vaildforhero;
+            //     tmp.prime = shardlist[1][i].prime
+            //     tmp.slot = this.getSlot(shardlist[1][i]); 
+            //     let id = 11;
+            //     tmp.key = dataList[id].length + 1;
+            //     dataList[id].push(tmp);
+            // }
             return dataList;
         },
         getSlot(k){
@@ -93,12 +108,12 @@ export default {
             return ret[0];
         },
         getIdByShardPack(str){
-            if(str.indexOf("Chaos") == -1) return 0;
-            return Number(str.replace(" ","").replace("Chaos",""));
+            //if(str.indexOf("Chaos") == -1) return 0;
+            return Number(str.replace(" ","").replace("Chaos","").replace("C",""));
         },
         changeTitleIcon(tab){
             this.nowTab = tab;
-            console.log(tab)
+            //console.log(tab)
         }
 
     }

@@ -14,7 +14,7 @@
             <NImage src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
         </NTabPane>
         <NTabPane name="碎片&词条" Tab="M&S">
-            <NTable :single-line="false" style="text-align: center;">
+            <NTable :single-line="false" style="text-align: center;" virtual-scroll>
                 <thead>
                     <tr>
                         <th style="width:30%"><b>部位</b></th>
