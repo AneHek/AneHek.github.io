@@ -12,17 +12,9 @@
         <br>
         <NTabs :value="nowTab" justify-content="space-evenly" type="line" @update-value="changeTitleIcon">
             <NTabPane name="前言" display-directive="show:lazy"></NTabPane>
-            <NTabPane name="C0" display-directive="show:lazy"><SC :data='Clean_DataList[0]'/></NTabPane>
-            <NTabPane name="C1" display-directive="show:lazy"><SC :data='Clean_DataList[1]'/></NTabPane>
-            <NTabPane name="C2" display-directive="show:lazy"><SC :data='Clean_DataList[2]'/></NTabPane>
-            <NTabPane name="C3" display-directive="show:lazy"><SC :data='Clean_DataList[3]'/></NTabPane>
-            <NTabPane name="C4" display-directive="show:lazy"><SC :data='Clean_DataList[4]'/></NTabPane>
-            <NTabPane name="C5" display-directive="show:lazy"><SC :data='Clean_DataList[5]'/></NTabPane>
-            <NTabPane name="C6" display-directive="show:lazy"><SC :data='Clean_DataList[6]'/></NTabPane>
-            <NTabPane name="C7" display-directive="show:lazy"><SC :data='Clean_DataList[7]'/></NTabPane>
-            <NTabPane name="C8" display-directive="show:lazy"><SC :data='Clean_DataList[8]'/></NTabPane>
-            <NTabPane name="C9" display-directive="show:lazy"><SC :data='Clean_DataList[9]'/></NTabPane>
-            <NTabPane name="C10" display-directive="show:lazy"><SC :data='Clean_DataList[10]'/></NTabPane>
+            <NTabPane v-for="i in 11" :key="i" :name="'C'+(i-1).toString()" display-directive="show:lazy">
+                <SC :data='Clean_DataList[i-1]'/>
+            </NTabPane>
             <NTabPane name="大师" display-directive="show:lazy"><SCM :data='Clean_DataList[11]'/></NTabPane>
         </NTabs>
     </NCard>
@@ -32,7 +24,6 @@
 import SC from './views/ShardCard.vue'
 import SCM from './views/ShardCardMastery.vue'
 import { NCard, NInput, NButton, NTabs, NTabPane } from 'naive-ui'
-import {ref} from 'vue'
 </script>
 <script>
 
@@ -42,9 +33,9 @@ export default {
     name: 'Shard',
     data() {
         return { 
-            SearchKey:ref(null),
+            SearchKey:null,
             nowTab:"前言",
-            Clean_DataList:this.getCleanData()
+            Clean_DataList:this.getCleanData(),
         }
     },
     methods: {

@@ -33,13 +33,14 @@ const router = createRouter({
                     path:"towerbuild",
                     component:TB
                 },
+                {
+                    path:"/gameinfo",
+                    component:GameInfo,
+                    children:[]
+                }
             ]
         },
-        {
-            path:"/gameinfo",
-            component:GameInfo,
-            children:[]
-        }
+        
     ]
 });
 

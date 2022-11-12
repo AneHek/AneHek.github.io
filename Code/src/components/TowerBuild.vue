@@ -10,6 +10,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[0]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -21,6 +22,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[1]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -32,6 +34,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[2]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -43,6 +46,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[3]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -54,6 +58,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[4]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -65,6 +70,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[5]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -76,6 +82,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[6]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -87,6 +94,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[7]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -98,6 +106,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[8]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -109,6 +118,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[9]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -120,6 +130,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[10]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -131,6 +142,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[11]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->
@@ -142,6 +154,7 @@
                     <NGridItem v-for="item of alltowerbuildlist[12]" style="align-self: center;">
                         <TBC 
                         :bid="item['BuildType']"
+                        :mid1="item['m1']" :mid2="item['m2']" :mid3="item['m3']"
                         :sid1="item['s1']" :sid2="item['s2']" :sid3="item['s3']"
                         :mc1="item.ml1.toString()" :mc2="item['ml2'].toString()" :mc3="item['ml3'].toString()" 
                          ></TBC><!--:sc1="item['sl1']" :sc2="item['sl2']" :sc3="item['sl3']" -->

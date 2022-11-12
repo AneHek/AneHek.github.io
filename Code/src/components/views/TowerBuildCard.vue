@@ -15,7 +15,7 @@
             </NLayoutSider>
             <NLayout>
                 <NLayoutHeader bordered>
-                    <h2>{{towername}}</h2>
+                    <pre style="font:900 20px sc">{{towername}}</pre>
                 </NLayoutHeader>
                 <NLayoutContent bordered content-style="padding: 0px">
                     <h3 style="margin:0px;align-self: center;">{{buildname}}</h3>
@@ -26,7 +26,7 @@
         <template #footer>
             <NLayout has-sider>
                 <NLayoutSider bordered content-style="padding: 5px" :width="50">
-                    <Imgs size="large" id="GreenShard" style="margin-top:132.5% ;"/>
+                    <Imgs size="large" :id="relictype" style="margin-top:132.5% ;"/>
                 </NLayoutSider>
                 <NLayout>
                     <NLayoutContent bordered content-style="padding: 0px">
@@ -68,7 +68,7 @@
 
             <NLayout has-sider>
                 <NLayoutSider bordered content-style="padding: 5px" :width="50">
-                    <Imgs size="large" :id='relictype' style="margin-top:132.5% ;"/>
+                    <Imgs size="large" id='GreenShard' style="margin-top:132.5% ;"/>
                 </NLayoutSider>
                 <NLayout>
                     <NLayoutContent bordered content-style="padding: 0px">
@@ -126,9 +126,9 @@ export default {
     props: {
         bid:{type:Number,default:0,},
         tid:{type:Number,default:0,},
-        mid1:{type:Number,default:0,},
-        mid3:{type:Number,default:0,},
-        mid2:{type:Number,default:0,},
+        mid1:{type:String},
+        mid3:{type:String},
+        mid2:{type:String},
         sid1:{type:String,},
         sid2:{type:String,},
         sid3:{type:String,},
@@ -144,9 +144,9 @@ export default {
         return{
             towername:this.getTowerNameById(this.tid),
             buildname:this.getBuildNameById(this.bid),
-            mods1:this.getModsNameById(this.mid1),
-            mods2:this.getModsNameById(this.mid2),
-            mods3:this.getModsNameById(this.mid3),
+            mods1:this.mid1,
+            mods2:this.mid2,
+            mods3:this.mid3,
             shard1:this.sid1,
             shard2:this.sid2,
             shard3:this.sid3,
