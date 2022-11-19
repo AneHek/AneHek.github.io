@@ -1,0 +1,23 @@
+{
+  "name": "dd2-wiki",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve --open",
+    "build": "vue-cli-service build",
+    "b": "serve -s dist"
+  },
+  "dependencies": {
+    "@types/node": "^18.8.0",
+    "core-js": "^3.25.5",
+    "naive-ui": "^2.33.5",
+    "serve": "^14.0.1",
+    "vue": "^3.0.0",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0"
+  }
+}
