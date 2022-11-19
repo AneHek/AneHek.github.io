@@ -18,12 +18,13 @@ export default {
     },
     data(){
         return {
-            url:require('../../assets/imgs/' + this.getUrlById(this.id))
+            url:this.getUrlById(this.id)
         }
     },
     methods: {
         getUrlById(id){
-            //console.log(imgslist[id]);
+            if(imgslist[id].indexOf("https") == -1)
+                return require('../../assets/imgs/'+imgslist[id]);
             return imgslist[id];
         }
     }

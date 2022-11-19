@@ -12,15 +12,6 @@
 
 <script setup>
 import {NDataTable} from 'naive-ui';
-import {onMounted,ref } from 'vue';
-const modstable = ref(null)
-const SearchByName = (val)=>{
-  if(!val) modstable.value.filter(null);
-  else modstable.value.filter({'name':[val]});
-}
-defineExpose({
-  SearchByName
-})
 </script>
 <script>
 const columns = [
@@ -29,9 +20,6 @@ const columns = [
     key: "name",
     resizable:true,
     width:200,
-    filter(value, row) {
-    return ~row.name.indexOf(String(value));
-    }
   },
   {
     title: "效果描述",
@@ -119,7 +107,14 @@ const columns = [
     filter(value, row) {
     return !!~row.vaildforhero.indexOf(String(value)) || !!~row.vaildforhero.indexOf("ALL");
     }
-  }
+  },
+  {
+    title:"词条类型",
+    key:"Type",
+    resizable:true,
+    width:100,
+    maxWidth:100,
+  },
 ];
 const pagination = { pageSize: 8 };
 export default {
