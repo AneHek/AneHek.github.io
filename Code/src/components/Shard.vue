@@ -2,9 +2,9 @@
     <h1>Shard查询</h1>
     <NCard>
         <n-input type="text" placeholder="输入碎片名进行搜索(不含大师碎片)" round clearable autosize style="min-width: 50%"
-            @update-value="(val) => { if (val) SearchKey = val; else clearSearch(); }" @on-clean="clearSearch();" />
+            @update-value="(val) => { if (val) SearchKey = val; else clearSearch(); resetBarPos();}" @on-clean="clearSearch();resetBarPos();" />
         <n-button strong secondary round type="info"
-            style="transform: translate(0px, 7px);--n-padding: 0;--n-width:34px" @click="SearchByName">
+            style="transform: translate(0px, 7px);--n-padding: 0;--n-width:34px" @click="SearchByName();resetBarPos();">
             🔍
         </n-button>
         <NTabs ref="tabsRef" :value="nowTab" justify-content="space-evenly" type="line" @update-value="changeTitleIcon">
@@ -65,7 +65,6 @@ export default {
                     }
                 }
             this.nowTab = "搜索结果";
-            this.resetBarPos();
         },
         getCleanData() {
             let dataList = [[], [], [], [], [], [], [], [], [], [], [], []];
@@ -117,7 +116,6 @@ export default {
             this.SearchKey = null;
             this.SearchList = [];
             this.SearchResultList = [];
-            this.resetBarPos();
             this.nowTab = (this.nowTab == "搜索结果") ? "C0" : this.nowTab
         },
         getSlot(k) {

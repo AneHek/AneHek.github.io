@@ -185,7 +185,7 @@ export default {
             }
             alltowerbuildlist[pos].push(towerbuildlist[i])
         }
-        console.log(alltowerbuildlist)
+        //console.log(alltowerbuildlist)
     },
     data() {
         return {

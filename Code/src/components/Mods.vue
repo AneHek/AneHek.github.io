@@ -2,9 +2,9 @@
     <h1>词条查询</h1>
     <NCard>
         <n-input type="text" placeholder="输入词条名进行搜索" round clearable autosize style="min-width: 50%"
-            @update-value="(val) => { if (val) SearchKey = val; else clearSearch(); }" @on-clean="clearSearch();" />
+            @update-value="(val) => { if (val) SearchKey = val; else clearSearch(); resetBarPos();}" @on-clean="clearSearch();resetBarPos();" />
         <n-button strong secondary round type="info"
-            style="transform: translate(0px, 7px);--n-padding: 0;--n-width:34px" @click="SearchByName()">
+            style="transform: translate(0px, 7px);--n-padding: 0;--n-width:34px" @click="SearchByName();resetBarPos();">
             🔍
         </n-button>
         <div id="IconShow">
@@ -63,14 +63,12 @@ export default {
             this.Clean_DataList.push(this.SearchResultList)
             this.namelist.push("搜索结果")
             this.nowTab = "搜索结果";
-            this.resetBarPos();
         },
         clearSearch() {
             this.SearchKey = null;
             this.Clean_DataList.length = 3;
             this.namelist.length = 3;
             this.SearchResultList = [];
-            this.resetBarPos();
             this.nowTab = (this.nowTab == "搜索结果") ? this.namelist[0] : this.nowTab
         },
         changeTitleIcon(tab) {
