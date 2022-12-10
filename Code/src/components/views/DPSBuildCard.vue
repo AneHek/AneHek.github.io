@@ -11,7 +11,7 @@
             </NList>
         </NTabPane>
         <NTabPane name="技能加点" Tab="Skills">
-            <NImage src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" />
+            <NImage width="500" :src="skillurl" />
         </NTabPane>
         <NTabPane name="碎片&词条" Tab="M&S">
             <NTable :single-line="false" style="text-align: center;" virtual-scroll>
@@ -24,48 +24,48 @@
                 </thead>
                 <tbody>
                     <tr v-for="item of 7">
-                        <td><NImage width="100" src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" preview-disabled/></td>
+                        <td><NImage width="60" src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg" preview-disabled/></td>
                         <td>
-                            <NGrid :cols="4">
+                            <NGrid :cols="5">
                                 <NGridItem>
                                     1
                                 </NGridItem>
-                                <NGridItem :span="3">
-                                    2
+                                <NGridItem :span="4">
+                                    {{data['s'+item.toString()+'1']}}
                                 </NGridItem>
                                 <NGridItem>
                                     3
                                 </NGridItem>
-                                <NGridItem :span="3">
-                                    4
+                                <NGridItem :span="4">
+                                    {{data['s'+item.toString()+'2']}}
                                 </NGridItem>
                                 <NGridItem>
                                     5
                                 </NGridItem>
-                                <NGridItem :span="3">
-                                    6
+                                <NGridItem :span="4">
+                                    {{data['s'+item.toString()+'3']}}
                                 </NGridItem>
                             </NGrid>
                         </td>
                         <td>
-                            <NGrid :cols="4">
+                            <NGrid :cols="5">
                                 <NGridItem>
                                     <Imgs size="small" id="MOD10" style="--n-color:none"/>
                                 </NGridItem>
-                                <NGridItem :span="3">
-                                    2
-                                </NGridItem>
-                                <NGridItem>
-                                    <Imgs size="small" id="MOD10" style="--n-color:none"/>
-                                </NGridItem>
-                                <NGridItem :span="3">
-                                    4
+                                <NGridItem :span="4">
+                                    {{data['m'+item.toString()+'1']}}
                                 </NGridItem>
                                 <NGridItem>
                                     <Imgs size="small" id="MOD10" style="--n-color:none"/>
                                 </NGridItem>
-                                <NGridItem :span="3">
-                                    6
+                                <NGridItem :span="4">
+                                    {{data['m'+item.toString()+'2']}}
+                                </NGridItem>
+                                <NGridItem>
+                                    <Imgs size="small" id="MOD10" style="--n-color:none"/>
+                                </NGridItem>
+                                <NGridItem :span="4">
+                                    {{data['m'+item.toString()+'3']}}
                                 </NGridItem>
                             </NGrid>
                         </td>
@@ -83,7 +83,14 @@ import {
 </script>
 <script>
 export default {
-    name: "DBC"
+    name: "DBC",
+    props:{
+        data:Object,
+        skillurl:String,
+    },
+    setup(){
+        console.log(skillurl)
+    }
 }
 </script>
 <style >
@@ -96,5 +103,12 @@ export default {
 
 h3 {
     margin: 0;
+}
+
+.n-table td {
+    padding:0;
+}
+.n-avatar {
+    padding-top: 2px;
 }
 </style>
