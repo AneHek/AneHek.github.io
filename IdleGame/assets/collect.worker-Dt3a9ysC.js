@@ -1,0 +1,1 @@
+(function(){"use strict";let e=null;self.onmessage=s=>{const{data:t}=s;if(t==="start"){if(e)return;e=setInterval(()=>{self.postMessage("tick")},1e3)}else t==="stop"&&e&&(clearInterval(e),e=null,console.log("Worker: Timer stopped"))}})();
